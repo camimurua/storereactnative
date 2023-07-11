@@ -1,11 +1,12 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { styles } from "./styles";
 import { Input } from '../../components';
 import { useState } from 'react';
 import { COLORS } from '../../themes';
 import { Ionicons } from '@expo/vector-icons'; 
+import PRODUCTS from '../../constants/data/products.json';
 
-const Products = ({onHandleGoBack}) => {
+const Products = ({onHandleGoBack, categoryId}) => {
     const [search, setSearch] = useState('');
     const [borderColor, setBorderColor] = useState(COLORS.primary);
     const onHandleBlur = () => {
@@ -17,6 +18,8 @@ const Products = ({onHandleGoBack}) => {
     const onHandleFocus = () => {
 
     }
+    const filteredProd = PRODUCTS.filter((product) => product.categoryId == categoryId);
+
     return (
         <View style={styles.container}> 
             <TouchableOpacity style={styles.goBack} onPress={onHandleGoBack}>
@@ -39,6 +42,11 @@ const Products = ({onHandleGoBack}) => {
                 }
                 
             </View>
+            <FlatList 
+                data={filteredProd}
+                renderItem={({item}) => <Text>{item.name}</Text>}
+                keyExtractor={(item) => item.id.toString()}
+            />
         </View>
     );
 }
