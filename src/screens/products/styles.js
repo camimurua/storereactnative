@@ -4,7 +4,8 @@ import { COLORS } from "../../themes";
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginHorizontal: 15
+      paddingHorizontal: 15,
+      backgroundColor: COLORS.background
     },
     header: {
       flexDirection: 'row',
@@ -37,15 +38,26 @@ export const styles = StyleSheet.create({
       paddingVertical: 25
     },
     productContainer: {
-      paddingVertical: 20,
       backgroundColor: COLORS.primary,
       borderRadius: 10,
-      paddingHorizontal: 10,
       width: '45%',
       marginHorizontal: 10
     },
     productImage: {
       width: '100%',
-      height: 120
+      height: 150,
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10
+    },
+    productDetail: {
+      padding: 10,
+      gap: 5
+    },
+    productName: {
+      fontSize: 14
+    },
+    productPrice: {
+      fontSize: 15,
+      fontWeight: 'bold'
     }
 });
