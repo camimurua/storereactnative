@@ -9,7 +9,7 @@ import PRODUCTS from '../../constants/data/products.json';
 const Products = ({onHandleGoBack, categorySelected}) => {
     const [search, setSearch] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [borderColor, setBorderColor] = useState(COLORS.primary);
+    const [borderColor, setBorderColor] = useState(COLORS.search);
 
     const onHandleBlur = () => {
         

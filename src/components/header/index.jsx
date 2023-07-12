@@ -4,7 +4,11 @@ import { styles } from "./styles";
 const Header = ({title, style}) => {
     return (
         <View style={[styles.container, style]}>
-            <Text style={styles.title}>{title}</Text>
+            {
+                title == 'Categories' ?
+                <Text style={styles.categoryTitle}>{title} </Text> :
+                <Text style={styles.productsTitle}>{title} </Text> 
+            }
         </View>
     );
 };

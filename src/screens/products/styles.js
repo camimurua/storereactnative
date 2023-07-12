@@ -19,7 +19,8 @@ export const styles = StyleSheet.create({
     },
     goBackText: {
       fontSize: 14,
-      color: COLORS.text
+      color: COLORS.text,
+      fontFamily: 'Inter-Medium'
     },
     products: {
       flex: 1
@@ -27,6 +28,9 @@ export const styles = StyleSheet.create({
     notFound: {
       flex: 1,
       alignItems: 'center'
+    },
+    notFoundText: {
+      fontFamily: 'Inter-Regular'
     },
     clearIcon: {
       position: 'absolute',
@@ -54,10 +58,11 @@ export const styles = StyleSheet.create({
       gap: 5
     },
     productName: {
-      fontSize: 14
+      fontSize: 14,
+      fontFamily: 'Inter-Medium'
     },
     productPrice: {
       fontSize: 15,
-      fontWeight: 'bold'
+      fontFamily: 'Inter-Bold'
     }
 });

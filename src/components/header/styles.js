@@ -18,9 +18,14 @@ export const styles = StyleSheet.create({
         shadowRadius: 2.62,
         elevation: 4,
     },
-    title: {
+    categoryTitle: {
         fontSize: 20,
         color: COLORS.text,
-        fontWeight: 'bold'
+        fontFamily: 'Inter-Bold'
+    },
+    productsTitle: {
+        fontSize: 20,
+        color: COLORS.white,
+        fontFamily: 'Inter-Bold'
     }
 });
