@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import { styles } from "./styles";
 import { Input } from '../../components';
 import { useState } from 'react';
@@ -6,7 +6,7 @@ import { COLORS } from '../../themes';
 import { Ionicons } from '@expo/vector-icons'; 
 import PRODUCTS from '../../constants/data/products.json';
 
-const Products = ({onHandleGoBack, categoryId}) => {
+const Products = ({onHandleGoBack, categorySelected}) => {
     const [search, setSearch] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [borderColor, setBorderColor] = useState(COLORS.primary);
@@ -23,7 +23,7 @@ const Products = ({onHandleGoBack, categoryId}) => {
     const onHandleFocus = () => {
 
     }
-    const filteredProductsByCategory = PRODUCTS.filter((product) => product.categoryId == categoryId);
+    const filteredProductsByCategory = PRODUCTS.filter((product) => product.categoryId == categorySelected.categoryId);
 
     const filteredBySearch = (query) => {
         let updatedProductList = [...filteredProductsByCategory];
@@ -55,7 +55,7 @@ const Products = ({onHandleGoBack, categoryId}) => {
                 />
                 {
                     search.length > 0 && (
-                    <Ionicons onPress={clearSearch} name="close-circle" size={30} color={COLORS.black} />
+                    <Ionicons style={styles.clearIcon} onPress={clearSearch} name="close-circle" size={20} color={COLORS.black} />
                     )
                 }
                 
@@ -63,7 +63,14 @@ const Products = ({onHandleGoBack, categoryId}) => {
             <FlatList 
                 style={styles.products}
                 data={search.length > 0 ? filteredProducts : filteredProductsByCategory}
-                renderItem={({item}) => <Text>{item.name}</Text>}
+                renderItem={({item}) => (
+                    <View style={[styles.productContainer, {backgroundColor: categorySelected.color}]}>
+                        <Image source={{uri:item.image}} style={styles.productImage}/>
+                        <Text>{item.name}</Text>
+                    </View>
+                )}
+                contentContainerStyle={styles.productsConten}
+                numColumns={2}
                 keyExtractor={(item) => item.id.toString()}
             />
             {
