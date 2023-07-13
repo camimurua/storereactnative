@@ -2,13 +2,13 @@ import { TouchableHighlight, ImageBackground, Text, useWindowDimensions } from "
 import {styles} from './styles';
 import { COLORS } from "../../../themes";
 
-const CategoryItem = ({ id, name, backgroundColor, backgroundImage, onSelectCategory }) => {
-    const { width } = useWindowDimensions();
-    const isTablet = width > 650;
+const CategoryItem = ({ id, name, backgroundColor, backgroundImage, onSelectCategory, style }) => {
+    /* const { width } = useWindowDimensions();
+    const isTablet = width > 650; */
     return (
         <TouchableHighlight onPress={() => onSelectCategory(id)} style={[styles.container, {backgroundColor}]} underlayColor={COLORS.primary}>
-            <ImageBackground source={{uri: backgroundImage}} style={isTablet ? styles.imageBackgroundTablet : styles.imageBackground} resizeMode={isTablet ? "contain" : "cover"}>
-                <Text style={isTablet ? styles.categoryNameTablet : styles.categoryName}>
+            <ImageBackground source={{uri: backgroundImage}} style={[styles.imageBackground, style]} resizeMode="cover">
+                <Text style={styles.categoryName}>
                     {name}
                 </Text>
             </ImageBackground>
