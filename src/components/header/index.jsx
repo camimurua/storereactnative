@@ -1,13 +1,16 @@
-import { View, Text } from "react-native";
+import { View, Text, useWindowDimensions } from "react-native";
 import { styles } from "./styles";
 
 const Header = ({title, style}) => {
+    const { width } = useWindowDimensions();
+    const isTablet = width > 650;
+
     return (
-        <View style={[styles.container, style]}>
+        <View style={[isTablet? styles.containerTablet : styles.container, style]}>
             {
                 title == 'Categories' ?
-                <Text style={styles.categoryTitle}>{title} </Text> :
-                <Text style={styles.productsTitle}>{title} </Text> 
+                <Text style={isTablet? styles.categoryTitleTablet : styles.categoryTitle}>{title} </Text> :
+                <Text style={isTablet? styles.productsTitleTablet : styles.productsTitle}>{title} </Text> 
             }
         </View>
     );

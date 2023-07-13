@@ -18,6 +18,21 @@ export const styles = StyleSheet.create({
         shadowRadius: 2.62,
         elevation: 4,
     },
+    containerTablet: {
+        marginTop: StatusBar.currentHeight,
+        backgroundColor: COLORS.primary,
+        height: 100,
+        justifyContent: "center",
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
+    },
     categoryTitle: {
         fontSize: 20,
         color: COLORS.text,
@@ -25,6 +40,16 @@ export const styles = StyleSheet.create({
     },
     productsTitle: {
         fontSize: 20,
+        color: COLORS.white,
+        fontFamily: 'Inter-Bold'
+    },
+    categoryTitleTablet: {
+        fontSize: 35,
+        color: COLORS.text,
+        fontFamily: 'Inter-Bold'
+    },
+    productsTitleTablet: {
+        fontSize: 35,
         color: COLORS.white,
         fontFamily: 'Inter-Bold'
     }
