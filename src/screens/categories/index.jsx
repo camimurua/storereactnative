@@ -5,8 +5,12 @@ import { styles } from "./styles";
 import useOrientation from '../../hooks/useOrientation';
 import { ORIENTATION } from '../../constants/orientation'
 
-const Categories = ({ onSelectCategory }) => {
+const Categories = ({ navigation }) => {
   const orientation = useOrientation();
+  const onSelectCategory = ({ categoryId, color }) => {
+    navigation.navigate('Products', {categoryId, color});
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
