@@ -1,16 +1,14 @@
 import { ActivityIndicator, SafeAreaView, View } from "react-native";
 import { styles } from "./styles";
-import { Header } from "./components";
-import { Categories, Products } from "./screens";
-import { useState } from "react";
 import { COLORS } from "./themes";
 import { useFonts } from "expo-font";
+import RootNavigator from "./navigations";
 
-const categoryDefault  = {
+/* const categoryDefault  = {
     categoryId: null,
     color: COLORS.primary
 };
-
+ */
 export default function App() {
     const [loaded] = useFonts({
         'Inter-Bold': require('../assets/fonts/Inter-Bold.ttf'),
@@ -20,7 +18,7 @@ export default function App() {
         'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf'),
         'Inter-SemiBold': require('../assets/fonts/Inter-SemiBold.ttf')
     });
-    const [isCategorySelected, setIsCategorySelected] = useState(false);
+    /* const [isCategorySelected, setIsCategorySelected] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(categoryDefault);
 
     const headerTitle = isCategorySelected ? 'Products' : 'Categories';
@@ -32,7 +30,7 @@ export default function App() {
     const onHandleNavigate = () => {
         setIsCategorySelected(!isCategorySelected);
         setSelectedCategory(categoryDefault);
-    }
+    } */
 
     if(!loaded){
         return (
@@ -44,15 +42,17 @@ export default function App() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.container}>
-                <Header title={headerTitle} style={{backgroundColor: selectedCategory.color}}/>
-                {
-                    isCategorySelected ? 
-                    <Products onHandleGoBack={onHandleNavigate} categorySelected={selectedCategory}/> 
-                    : 
-                    <Categories onSelectCategory={onHandleSelectCategory}/>
-                }
-            </View>
+            <RootNavigator />
         </SafeAreaView>
     );
 }
+
+{/* <View style={styles.container}>
+    <Header title={headerTitle} style={{backgroundColor: selectedCategory.color}}/>
+        {
+            isCategorySelected ? 
+            <Products onHandleGoBack={onHandleNavigate} categorySelected={selectedCategory}/> 
+            : 
+            <Categories onSelectCategory={onHandleSelectCategory}/>
+        }
+</View> */}
