@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Categories, Products } from '../screens';
 import { COLORS } from '../themes';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
 import { styles } from './styles';
 
@@ -17,7 +17,8 @@ function ShopNavigator(){
                 fontFamily: 'Inter-Bold',
                 fontSize: 17
             },
-            headerTintColor: COLORS.white
+            headerTintColor: COLORS.white,
+            animation: 'fade_from_bottom'
         }}>
             <Stack.Screen name='Categories' component={Categories}/>
             <Stack.Screen name='Products' component={Products} options={({navigation, route}) => ({
