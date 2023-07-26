@@ -8,5 +8,6 @@ export const COLORS = {
     search: '#01497C',
     grey: '#adb5bd',
     tab: '#3d5a80',
-    badge: '#006494'
+    badge: '#42a5f5',
+    backgroundWhite: '#edf2fb'
 }
