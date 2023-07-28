@@ -48,5 +48,21 @@ export const styles = StyleSheet.create({
     tagContainer: {
         padding: 10,
         borderRadius: 10
-    }
+    },
+    containerButton: {
+        marginVertical: 10,
+      },
+      addToCartButton: {
+        width: '100%',
+        backgroundColor: COLORS.primary,
+        padding: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      addToCartText: {
+        fontFamily: 'Inter-Regular',
+        fontSize: 16,
+        color: COLORS.white,
+      },
 });
