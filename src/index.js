@@ -3,6 +3,8 @@ import { styles } from "./styles";
 import { COLORS } from "./themes";
 import { useFonts } from "expo-font";
 import RootNavigator from "./navigations";
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 /* const categoryDefault  = {
     categoryId: null,
@@ -41,9 +43,11 @@ export default function App() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <RootNavigator />
-        </SafeAreaView>
+        <Provider store={store}>
+            <SafeAreaView style={styles.container}>
+                <RootNavigator />
+            </SafeAreaView>
+        </Provider>
     );
 }
 

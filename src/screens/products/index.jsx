@@ -4,11 +4,11 @@ import { Input } from '../../components';
 import { useState } from 'react';
 import { COLORS } from '../../themes';
 import { Ionicons } from '@expo/vector-icons'; 
-import PRODUCTS from '../../constants/data/products.json';
+import { useSelector } from 'react-redux';
 
 const Products = ({ navigation, route }) => {
     const {categoryId, color} = route.params;
-
+    const products = useSelector((state) => state.products.data);
     const [search, setSearch] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [borderColor, setBorderColor] = useState(COLORS.search);
@@ -18,7 +18,7 @@ const Products = ({ navigation, route }) => {
         filteredBySearch(text);
     }
 
-    const filteredProductsByCategory = PRODUCTS.filter((product) => product.categoryId == categoryId);
+    const filteredProductsByCategory = products.filter((product) => product.categoryId == categoryId);
 
     const filteredBySearch = (query) => {
         let updatedProductList = [...filteredProductsByCategory];
