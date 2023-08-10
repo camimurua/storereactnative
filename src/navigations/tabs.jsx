@@ -4,10 +4,12 @@ import CartNavigator from './cart';
 import OrdersNavigator from './orders';
 import { COLORS } from '../themes';
 import { Ionicons } from '@expo/vector-icons/';
+import { useSelector } from 'react-redux';
 
 const BottomTab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
+    const cartItems = useSelector((state) => state.cart.items);
     return (
         <BottomTab.Navigator initialRouteName='ShopTab' 
             screenOptions={{
@@ -29,17 +31,17 @@ const TabsNavigator = () => {
             <BottomTab.Screen name="ShopTab" component={ShopNavigator} 
             options={{
                 tabBarLabel: 'Shop',
-                tabBarIcon: ({focused, color, size}) => (
-                    <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={color}/>
+                tabBarIcon: ({focused, color}) => (
+                    <Ionicons name={focused ? 'home' : 'home-outline'} size={20} color={color}/>
                 )
             }}/>
             <BottomTab.Screen name="CartTab" component={CartNavigator} 
             options={{
                 tabBarLabel: 'Cart',
-                tabBarIcon: ({focused, color, size}) => (
-                    <Ionicons name={focused ? 'cart' : 'cart-outline'} size={size} color={color}/>
+                tabBarIcon: ({focused, color}) => (
+                    <Ionicons name={focused ? 'cart' : 'cart-outline'} size={20} color={color}/>
                 ),
-                tabBarBadge: 2,
+                tabBarBadge: cartItems.length,
                 tabBarBadgeStyle: {
                     backgroundColor: COLORS.badge,
                     color: COLORS.white,
@@ -51,8 +53,8 @@ const TabsNavigator = () => {
             <BottomTab.Screen name="OrdersTab" component={OrdersNavigator} 
             options={{
                 tabBarLabel: 'Orders',
-                tabBarIcon: ({focused, color, size}) => (
-                    <Ionicons name={focused ? 'file-tray' : 'file-tray-outline'} size={size} color={color}/>
+                tabBarIcon: ({focused, color}) => (
+                    <Ionicons name={focused ? 'file-tray' : 'file-tray-outline'} size={20} color={color}/>
                 )
             }}
             />

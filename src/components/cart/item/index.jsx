@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { COLORS } from '../../../themes';
 
-const CartItem = ({id, categoryId, name, price, image, currency, quantity, stock, ...props}) => {
+const CartItem = ({id, categoryId, name, price, image, currency, quantity, stock, nIncreaseCartItem, onDecreaseCartItem, onRemoveCartItem}) => {
     return(
         <View style={styles.container}>
             <View style={styles.imageContainer}>
@@ -14,13 +14,13 @@ const CartItem = ({id, categoryId, name, price, image, currency, quantity, stock
                 <Text style={styles.price}>{`${currency.code} ${price}`}</Text>
                 <Text style={styles.quantity}>{`qty: ${quantity} stock: ${stock}`}</Text>
                 <View style={styles.actionContainer}>
-                    <TouchableOpacity style={styles.increaseButton} onPress={() => {}}>
+                    <TouchableOpacity style={styles.increaseButton} onPress={() => onIncreaseCartItem(id)}>
                         <Text style={styles.increaseButtonText}>+</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.decreaseButton} onPress={() => {}}>
+                    <TouchableOpacity style={styles.decreaseButton} onPress={() => onDecreaseCartItem(id)}>
                         <Text style={styles.decreaseButtonText}>-</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.deleteButton} onPress={() => {}}>
+                    <TouchableOpacity style={styles.deleteButton} onPress={() => onRemoveCartItem(id)}>
                         <Ionicons name='trash' size={20} color={COLORS.white} />
                     </TouchableOpacity>
                 </View>

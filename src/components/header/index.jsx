@@ -12,6 +12,7 @@ const Header = ({title, style}) => {
                 <Text style={isTablet? styles.categoryTitleTablet : styles.categoryTitle}>{title} </Text> :
                 <Text style={isTablet? styles.productsTitleTablet : styles.productsTitle}>{title} </Text> 
             }
+            {/* <Text style={isTablet ? styles.tabletTitle : styles.title}>{title}</Text> */}
         </View>
     );
 };

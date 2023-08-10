@@ -6,9 +6,10 @@ const Stack = createNativeStackNavigator();
 
 const OrdersNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Orders" screenOptions={{
+        <Stack.Navigator initialRouteName="Orders" screenOptions={() => ({
             headerStyle: {
-                backgroundColor: COLORS.primary
+                backgroundColor: COLORS.primary,
+                height: 80
             },
             headerTitleStyle: {
                 fontFamily: 'Inter-Bold',
@@ -16,7 +17,7 @@ const OrdersNavigator = () => {
             },
             headerTintColor: COLORS.white,
             animation: 'fade_from_bottom'
-        }}>
+        })}>
             <Stack.Screen name="Orders" component={Orders} />
         </Stack.Navigator>
     );

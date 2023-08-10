@@ -8,7 +8,8 @@ const CartNavigator = () => {
     return (
         <Stack.Navigator initialRouteName="Cart" screenOptions={{
             headerStyle: {
-                backgroundColor: COLORS.primary
+                backgroundColor: COLORS.primary,
+                height: 80
             },
             headerTitleStyle: {
                 fontFamily: 'Inter-Bold',

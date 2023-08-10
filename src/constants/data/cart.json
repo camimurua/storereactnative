@@ -1,38 +1,5 @@
 [
     {
-        "id": 1,
-        "categoryId": 1,
-        "name": "Samsung Galaxy S23 Ultra",
-        "description": "Samsung Galaxy S23 Ultra 5G 256GB",
-        "price": 1250,
-        "image": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-c91d9.appspot.com/o/products%2Fsamsung-galaxy-s23-ultra.png?alt=media&token=64c9c470-e5b9-44d0-939e-38bad88555c5",
-        "currency": {
-            "symbol": "$",
-            "code": "USD",
-            "name": "US Dollar"
-        },
-        "quantity": 1,
-        "tags": [
-            "samsung",
-            "galaxy",
-            "s23",
-            "ultra",
-            "5g",
-            "256gb"
-        ],
-        "features": [
-            "6.8-inch Dynamic AMOLED 2X display",
-            "Snapdragon 888 chipset",
-            "12GB RAM",
-            "256GB storage",
-            "108MP+10MP+10MP+12MP quad rear cameras",
-            "40MP front camera",
-            "5000mAh battery"
-        ],
-        "rating": 5,
-        "stock": 10
-    },
-    {
         "id": 2,
         "categoryId": 1,
         "name": "Iphone 14 Pro Max",
@@ -44,7 +11,7 @@
             "code": "USD",
             "name": "US Dollar"
         },
-        "quantity": 3,
+        "quantity": 1,
         "tags": [
             "iphone",
             "14",
@@ -76,7 +43,7 @@
             "code": "USD",
             "name": "US Dollar"
         },
-        "quantity": 1,
+        "quantity": 3,
         "tags": [
             "macbook",
             "pro",
